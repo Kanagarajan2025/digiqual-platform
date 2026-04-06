@@ -32,12 +32,41 @@ npm run dev
 ```
 
 ## Feature Progress
-- [x] Login Page (All roles — Super Admin, Partner, Student)
+	[x] ✅ Login Page (Beautiful, Modern UI - All 3 roles)
 - [ ] Super Admin Dashboard
 - [ ] Partner Institute Dashboard
 - [ ] Student Portal
 - [ ] Certificate Issuance & PDF Generation
 - [ ] Public Certificate Verification Page
+
+## 🚀 Quick Start
+
+### 1. Setup Database
+\`\`\`bash
+createdb digiqual_db  # PostgreSQL
+\`\`\`
+
+### 2. Start Backend
+\`\`\`bash
+cd backend
+mvn spring-boot:run
+\`\`\`
+
+### 3. Start Frontend (New Terminal)
+\`\`\`bash
+cd frontend
+npm install
+npm run dev
+\`\`\`
+
+### 4. Login with Demo Credentials
+**Admin**: admin@digiqual.com / Admin@123
+**Partner**: partner@digiqual.com / Partner@123
+**Student**: student@digiqual.com / Student@123
+
+## 📖 Documentation
+- [SETUP.md](SETUP.md) - Detailed setup instructions
+- [IMPLEMENTATION.md](IMPLEMENTATION.md) - What was built & how it works
 
 ## Project Structure
 ```
