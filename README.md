@@ -1,6 +1,6 @@
 # DIGIQUAL Platform
 
-A centralised management system for DIGIQUAL — a UK-based awarding body providing syllabus and accreditation through partner institutes.
+A centralised management system for **DIGIQUAL** — a UK-based awarding body providing syllabus and accreditation through partner institutes.
 
 ## Tech Stack
 - **Frontend:** React 18 + Vite + Tailwind CSS
@@ -8,16 +8,18 @@ A centralised management system for DIGIQUAL — a UK-based awarding body provid
 - **Database:** PostgreSQL
 
 ## Roles
-- 🛡️ Super Admin — full platform control
-- 🏫 Partner Institute — manage batches & students
-- 🎓 Student — access courses & certificate
+| Role | Access |
+|------|--------|
+| Super Admin | Full platform control — partners, students, certificates |
+| Partner Institute | Manage batches, enrol students, submit for approval |
+| Student | View profile, access course materials, download certificate |
 
 ## Getting Started
 
 ### Backend
 ```bash
 cd backend
-# update application.properties with your PostgreSQL credentials
+# Update src/main/resources/application.properties with your DB credentials
 mvn spring-boot:run
 ```
 
@@ -26,8 +28,16 @@ mvn spring-boot:run
 cd frontend
 npm install
 npm run dev
-# open http://localhost:5173
+# Opens at http://localhost:5173
 ```
+
+## Feature Progress
+- [x] Login Page (All roles — Super Admin, Partner, Student)
+- [ ] Super Admin Dashboard
+- [ ] Partner Institute Dashboard
+- [ ] Student Portal
+- [ ] Certificate Issuance & PDF Generation
+- [ ] Public Certificate Verification Page
 
 ## Project Structure
 ```
@@ -36,10 +46,5 @@ digiqual-platform/
 └── frontend/         ← React 18 + Vite + Tailwind CSS
 ```
 
-## Features (MVP)
-- [x] Login Page — Super Admin / Partner / Student
-- [ ] Super Admin Dashboard
-- [ ] Partner Institute Dashboard
-- [ ] Student Portal
-- [ ] Certificate Issuance & Verification
-- [ ] Public Certificate Verification Page
+---
+© 2024 DIGIQUAL Ltd. United Kingdom.
