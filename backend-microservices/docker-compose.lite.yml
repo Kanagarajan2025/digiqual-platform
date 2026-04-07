@@ -1,0 +1,67 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: digiqual-postgres-lite
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_lite_data:/var/lib/postgresql/data
+      - ./docker/postgres/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    command: ["postgres", "-c", "shared_buffers=128MB", "-c", "work_mem=4MB", "-c", "maintenance_work_mem=64MB"]
+    mem_limit: 512m
+
+  auth-service:
+    build:
+      context: ./auth-service
+      dockerfile: Dockerfile
+    container_name: digiqual-auth-service-lite
+    environment:
+      SERVER_PORT: 8091
+      DB_URL: jdbc:postgresql://postgres:5432/digiqual_auth_db
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+      DB_DRIVER: org.postgresql.Driver
+      DB_DIALECT: org.hibernate.dialect.PostgreSQLDialect
+      JPA_DDL_AUTO: update
+      JWT_SECRET: ${JWT_SECRET:-replace-this-secret-with-a-secure-env-value}
+      APP_SEED_ENABLED: "true"
+      JAVA_TOOL_OPTIONS: "-Xms64m -Xmx192m -XX:+UseSerialGC -XX:MaxMetaspaceSize=96m"
+    ports:
+      - "8091:8091"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    mem_limit: 256m
+
+  gateway-service:
+    build:
+      context: ./gateway-service
+      dockerfile: Dockerfile
+    container_name: digiqual-gateway-service-lite
+    environment:
+      SERVER_PORT: 8090
+      AUTH_SERVICE_URL: http://auth-service:8091
+      ADMIN_SERVICE_URL: http://admin-service:8092
+      PARTNER_SERVICE_URL: http://partner-service:8093
+      STUDENT_SERVICE_URL: http://student-service:8094
+      JWT_SECRET: ${JWT_SECRET:-replace-this-secret-with-a-secure-env-value}
+      JAVA_TOOL_OPTIONS: "-Xms64m -Xmx128m -XX:+UseSerialGC -XX:MaxMetaspaceSize=96m"
+    ports:
+      - "8090:8090"
+    depends_on:
+      - auth-service
+    mem_limit: 192m
+
+volumes:
+  postgres_lite_data:

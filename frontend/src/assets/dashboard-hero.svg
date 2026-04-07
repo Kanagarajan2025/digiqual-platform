@@ -1,0 +1,64 @@
+<svg width="1200" height="260" viewBox="0 0 1200 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="a" x1="0" y1="0" x2="1200" y2="260" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B132A"/>
+      <stop offset="0.5" stop-color="#113150"/>
+      <stop offset="1" stop-color="#0F766E"/>
+    </linearGradient>
+    <radialGradient id="b" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1040 66) rotate(141) scale(190 138)">
+      <stop stop-color="#2DD4BF" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#2DD4BF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="c" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(160 86) rotate(52) scale(170 118)">
+      <stop stop-color="#38BDF8" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#38BDF8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="d" x1="742" y1="44" x2="1070" y2="198" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#DBEAFE" stop-opacity="0.84"/>
+      <stop offset="1" stop-color="#BFDBFE" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="260" rx="26" fill="url(#a)"/>
+  <rect width="1200" height="260" rx="26" fill="url(#b)"/>
+  <rect width="1200" height="260" rx="26" fill="url(#c)"/>
+
+  <g opacity="0.22" stroke="#93C5FD">
+    <path d="M0 58H1200"/>
+    <path d="M0 102H1200"/>
+    <path d="M0 146H1200"/>
+    <path d="M0 190H1200"/>
+    <path d="M82 0V260"/>
+    <path d="M164 0V260"/>
+    <path d="M246 0V260"/>
+    <path d="M328 0V260"/>
+    <path d="M410 0V260"/>
+    <path d="M492 0V260"/>
+    <path d="M574 0V260"/>
+    <path d="M656 0V260"/>
+    <path d="M738 0V260"/>
+    <path d="M820 0V260"/>
+    <path d="M902 0V260"/>
+    <path d="M984 0V260"/>
+    <path d="M1066 0V260"/>
+    <path d="M1148 0V260"/>
+  </g>
+
+  <path d="M0 205C120 168 232 162 329 179C425 196 511 226 613 226C715 226 805 194 911 181C1017 168 1104 181 1200 215V260H0V205Z" fill="#0EA5E9" fill-opacity="0.45"/>
+  <path d="M0 225C98 194 201 194 294 207C386 219 473 238 572 236C671 234 762 211 859 203C956 194 1062 200 1200 230V260H0V225Z" fill="#2DD4BF" fill-opacity="0.32"/>
+
+  <rect x="84" y="48" width="340" height="78" rx="16" fill="#FFFFFF" fill-opacity="0.14"/>
+  <rect x="104" y="68" width="210" height="16" rx="8" fill="#E2E8F0" fill-opacity="0.88"/>
+  <rect x="104" y="94" width="160" height="11" rx="5.5" fill="#CBD5E1" fill-opacity="0.82"/>
+
+  <g>
+    <rect x="744" y="44" width="332" height="154" rx="18" fill="url(#d)"/>
+    <rect x="764" y="64" width="136" height="10" rx="5" fill="#334155" fill-opacity="0.35"/>
+    <path d="M770 162C790 136 812 146 832 121C853 94 875 100 896 113C915 125 934 109 954 94C975 79 994 80 1012 91C1031 102 1043 123 1060 132" stroke="#0F766E" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="832" cy="121" r="6" fill="#0EA5E9"/>
+    <circle cx="896" cy="113" r="6" fill="#22D3EE"/>
+    <circle cx="954" cy="94" r="6" fill="#2DD4BF"/>
+    <circle cx="1012" cy="91" r="6" fill="#38BDF8"/>
+    <rect x="764" y="172" width="92" height="10" rx="5" fill="#334155" fill-opacity="0.25"/>
+  </g>
+</svg>

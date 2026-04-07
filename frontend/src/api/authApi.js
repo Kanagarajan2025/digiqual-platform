@@ -1,22 +1,11 @@
-import axios from 'axios'
+import { createServiceClient, resolveServiceBaseUrl } from './serviceClient'
 
-const API_BASE_URL = 'http://localhost:8080/api'
+const AUTH_API_BASE_URL = resolveServiceBaseUrl(
+  import.meta.env.VITE_AUTH_API_BASE_URL,
+  'http://localhost:8091/api'
+)
 
-const authApi = axios.create({
-  baseURL: API_BASE_URL,
-  headers: {
-    'Content-Type': 'application/json',
-  },
-})
-
-// Add token to requests if it exists
-authApi.interceptors.request.use((config) => {
-  const token = localStorage.getItem('authToken')
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`
-  }
-  return config
-})
+const authApi = createServiceClient(AUTH_API_BASE_URL)
 
 export const login = async (email, password, role) => {
   try {
